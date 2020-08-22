@@ -10,7 +10,9 @@
 
 ### 🧑‍🎨 Running SASS
 
-`yarn sass` to watch for .scss files and compile the output at **css** folder.
+The following command will watch for .scss files and compile the output at **css** folder.
+
+`yarn sass`
 
 ### 🎨 Visual Design
 
