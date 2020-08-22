@@ -76,8 +76,6 @@ function formatTime(value) {
 }
 
 function startTimer(id) {
-  console.log(`cliquei no play do item ${id}`);
-
   let seconds = 0;
 
   const counter = setInterval(function () {
