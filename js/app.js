@@ -44,6 +44,22 @@ function renderTasks(task) {
 
   taskItem.innerHTML = `
     <p class="tasks__list-item-title">${task.value}</p>
+
+    <ul class="tasks__list-item-timer">
+      <li><span class="tasks__list-item-hours">00</span></li>
+      <li><span class="tasks__list-item-minutes">00</span></li>
+      <li><span class="tasks__list-item-seconds">00</span></li>
+    </ul>
+
+    <div class="tasks__list-item-controls">
+      <button class="tasks__list-item-button tasks__list-item-pause">
+        <img src="./img/icon__pause.svg" alt="Pause icon">
+      </button>
+
+      <button class="tasks__list-item-button tasks__list-item-play">
+        <img src="./img/icon__play.svg" alt="Play icon">
+      </button>
+    </div>
   `;
 
   tasksList.append(taskItem);

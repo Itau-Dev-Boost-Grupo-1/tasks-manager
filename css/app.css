@@ -54,13 +54,41 @@ input {
 .tasks__list {
   margin: 56px auto 0;
   list-style: none; }
-  .tasks__list-item {
-    background-color: #ffffff;
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    margin: 0 auto 24px; }
+
+.tasks__list-item {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
   .tasks__list-item-title {
     font-weight: 500;
     color: #3a86ff;
-    font-size: 20px; }
+    font-size: 20px;
+    width: 100%;
+    margin: 0 auto 20px; }
+  .tasks__list-item-timer {
+    padding: 13px 16px;
+    border: 2px solid #3a86ff;
+    list-style: none;
+    background: #ebf2ff;
+    color: #3a86ff;
+    border-radius: 10px;
+    font-weight: 500;
+    display: flex;
+    flex-shrink: 0; }
+  .tasks__list-item-button {
+    background: #3a86ff;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(58, 134, 255, 0.32);
+    transition: 300ms ease all; }
+    .tasks__list-item-button:not(:last-child) {
+      margin: 0 15px 0 0; }
+    .tasks__list-item-button:hover {
+      transform: scale(1.1); }

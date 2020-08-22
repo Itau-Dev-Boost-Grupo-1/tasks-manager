@@ -62,18 +62,53 @@ input {
 .tasks__list {
   margin: 56px auto 0;
   list-style: none;
+}
 
-  &-item {
-    background-color: $light-color;
-    padding: 24px;
-    border-radius: $border-radius-small;
-    box-shadow: $card-shadow;
-    margin: 0 auto 24px;
-  }
+.tasks__list-item {
+  background-color: $light-color;
+  padding: 24px;
+  border-radius: $border-radius-small;
+  box-shadow: $card-shadow;
+  margin: 0 auto 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-  &-item-title {
+  &-title {
     font-weight: 500;
     color: $main-color;
     font-size: $font-medium;
+    width: 100%;
+    margin: 0 auto 20px;
+  }
+
+  &-timer {
+    padding: 13px 16px;
+    border: 2px solid $main-color;
+    list-style: none;
+    background: $secondary-color;
+    color: $main-color;
+    border-radius: $border-radius-small;
+    font-weight: 500;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &-button {
+    background: $main-color;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: $border-radius-small;
+    box-shadow: $button-shadow;
+    transition: 300ms ease all;
+
+    &:not(:last-child) {
+      margin: 0 15px 0 0;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
