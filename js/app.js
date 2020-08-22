@@ -78,25 +78,9 @@ function formatTime(value) {
 function startTimer(id) {
   console.log(`cliquei no play do item ${id}`);
 
-  const currentTask = document.querySelector(`[data-key='${id}']`);
-
-  // const minutes = document.querySelector(
-  //   `[data-key='${id}'] .tasks__list-item-minutes`
-  // );
-
-  // const seconds = document.querySelector(
-  //   `[data-key='${id}'] .tasks__list-item-seconds`
-  // );
-
   let seconds = 0;
 
   const counter = setInterval(function () {
-    // const hoursField = document.querySelector(".tasks__list-item-hours");
-
-    // const minField = document.querySelector(".tasks__list-item-minutes");
-
-    // const secField = document.querySelector(".tasks__list-item-seconds");
-
     const minutesField = document.querySelector(
       `[data-key='${id}'] .tasks__list-item-minutes`
     );
