@@ -92,6 +92,8 @@ input {
     font-weight: 500;
     display: flex;
     flex-shrink: 0;
+    min-width: 110px;
+    justify-content: center;
   }
 
   &-button {
