@@ -28,6 +28,7 @@ form.addEventListener("submit", (e) => {
   const text = formInput.value.trim();
 
   addNewTask(text);
+  formInput.value = "";
 });
 
 /**
