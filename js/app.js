@@ -40,7 +40,9 @@ function renderTasks(task) {
 
   const taskItem = document.createElement("li");
 
-  taskItem.setAttribute("class", `tasks__list-item`);
+  taskItem.setAttribute("class", "tasks__list-item");
+
+  taskItem.setAttribute("data-key", `${task.id}`);
 
   taskItem.innerHTML = `
     <p class="tasks__list-item-title">${task.value}</p>
@@ -56,7 +58,7 @@ function renderTasks(task) {
         <img src="./img/icon__pause.svg" alt="Pause icon">
       </button>
 
-      <button class="tasks__list-item-button tasks__list-item-play" onClick="startTimer()">
+      <button class="tasks__list-item-button tasks__list-item-play" onClick="startTimer(${task.id})">
         <img src="./img/icon__play.svg" alt="Play icon">
       </button>
     </div>
@@ -65,21 +67,45 @@ function renderTasks(task) {
   tasksList.append(taskItem);
 }
 
+/**
+ * Start Timer
+ */
+
 function formatTime(value) {
   return value > 9 ? value : "0" + value;
 }
 
-function startTimer() {
+function startTimer(id) {
+  console.log(`cliquei no play do item ${id}`);
+
+  const currentTask = document.querySelector(`[data-key='${id}']`);
+
+  // const minutes = document.querySelector(
+  //   `[data-key='${id}'] .tasks__list-item-minutes`
+  // );
+
+  // const seconds = document.querySelector(
+  //   `[data-key='${id}'] .tasks__list-item-seconds`
+  // );
+
   let seconds = 0;
 
-  setInterval(function () {
-    const hoursField = document.querySelector(".tasks__list-item-hours");
+  const counter = setInterval(function () {
+    // const hoursField = document.querySelector(".tasks__list-item-hours");
 
-    const minField = document.querySelector(".tasks__list-item-minutes");
+    // const minField = document.querySelector(".tasks__list-item-minutes");
 
-    const secField = document.querySelector(".tasks__list-item-seconds");
+    // const secField = document.querySelector(".tasks__list-item-seconds");
 
-    minField.innerHTML = formatTime(parseInt(seconds / 60, 10));
-    secField.innerHTML = formatTime(++seconds % 60);
+    const minutesField = document.querySelector(
+      `[data-key='${id}'] .tasks__list-item-minutes`
+    );
+
+    const secondsField = document.querySelector(
+      `[data-key='${id}'] .tasks__list-item-seconds`
+    );
+
+    minutesField.innerHTML = formatTime(parseInt(seconds / 60, 10));
+    secondsField.innerHTML = formatTime(++seconds % 60);
   }, 1000);
 }
