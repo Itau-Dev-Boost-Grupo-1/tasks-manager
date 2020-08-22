@@ -46,8 +46,8 @@ function renderTasks(task) {
     <p class="tasks__list-item-title">${task.value}</p>
 
     <ul class="tasks__list-item-timer">
-      <li><span class="tasks__list-item-hours">00</span></li>
-      <li><span class="tasks__list-item-minutes">00</span></li>
+      <li><span class="tasks__list-item-hours">00</span>:</li>
+      <li><span class="tasks__list-item-minutes">00</span>:</li>
       <li><span class="tasks__list-item-seconds">00</span></li>
     </ul>
 
@@ -56,11 +56,30 @@ function renderTasks(task) {
         <img src="./img/icon__pause.svg" alt="Pause icon">
       </button>
 
-      <button class="tasks__list-item-button tasks__list-item-play">
+      <button class="tasks__list-item-button tasks__list-item-play" onClick="startTimer()">
         <img src="./img/icon__play.svg" alt="Play icon">
       </button>
     </div>
   `;
 
   tasksList.append(taskItem);
+}
+
+function formatTime(value) {
+  return value > 9 ? value : "0" + value;
+}
+
+function startTimer() {
+  let seconds = 0;
+
+  setInterval(function () {
+    const hoursField = document.querySelector(".tasks__list-item-hours");
+
+    const minField = document.querySelector(".tasks__list-item-minutes");
+
+    const secField = document.querySelector(".tasks__list-item-seconds");
+
+    minField.innerHTML = formatTime(parseInt(seconds / 60, 10));
+    secField.innerHTML = formatTime(++seconds % 60);
+  }, 1000);
 }
