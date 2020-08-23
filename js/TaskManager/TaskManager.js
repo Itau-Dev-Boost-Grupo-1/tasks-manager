@@ -17,6 +17,8 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
 
   var _self = this;
   var taskInput = null;
+  var display = null;
+  var displayDefaultValue = "00:00:00";
 
   function create() {
 
@@ -88,6 +90,9 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     taskListUI =  createTaskListContainer();
     mainContainer.appendChild(taskListUI);
 
+    var calcTotalUI = createCalcTotalUI();
+    mainContainer.appendChild(calcTotalUI);
+
     return mainContainer;
   }
 
@@ -133,6 +138,54 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     container.appendChild(form);
 
     return container;
+  }
+
+  function createCalcTotalUI() {
+    var container = createContainer(classes.addTaskContainer);
+
+    var title = createTitle("Total hours");
+    container.appendChild(title);
+
+    var form = document.createElement("div");
+    form.setAttribute("class", classes.form);
+
+    display = document.createElement("input");
+    display.type = "text";
+    display.value = displayDefaultValue;
+    display.setAttribute("disable", true);
+    display.setAttribute("class", classes.taskInput);
+
+    container.appendChild(display);
+
+
+    var calculateButton = createButton("Calculate", classes.addTaskButton, function () {
+      calculateTotal();
+    });
+
+    form.appendChild(calculateButton);
+
+    container.appendChild(form);
+
+    return container;
+  }
+
+  function calculateTotal() {
+    var totalTime = 0;
+
+    var length = tasks.length;
+
+    if (length < 1) {
+      return;
+    }
+
+    for (var index = 0; index < length; index++) {
+      var task = tasks[index];
+
+      task.stop();
+      totalTime += task.getTime();
+    }
+
+    display.value = new Task().calculateTime(totalTime);
   }
 
   function createTaskListContainer() {

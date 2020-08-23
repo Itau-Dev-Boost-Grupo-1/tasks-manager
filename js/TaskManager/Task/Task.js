@@ -30,6 +30,16 @@ var Task = function (container, taskName) {
     clearInterval(timerId);
   }
 
+  this.calculateTime = function(time) {
+    var displayTime = displayDefaultValue;
+
+    if (parseInt(time)) {
+      displayTime = timeToDisplay(transformSeconds(time));
+    }
+
+    return displayTime;
+  }
+
   function transformSeconds(timeSeconds) {
     var result = { time: 0, timeLeft: 0 };
 
@@ -141,8 +151,9 @@ var Task = function (container, taskName) {
     return digit;
   }
 
-  this.getTimeString = function() {}
-  this.getTime = function() {}
+  this.getTime = function() {
+    return time;
+  }
 
   this.destroy = function() {}
 
