@@ -149,11 +149,8 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     var form = document.createElement("div");
     form.setAttribute("class", classes.form);
 
-    display = document.createElement("input");
-    display.type = "text";
+    display = createTextInput(classes.taskInput, inputTaskPlaceHolder, true);
     display.value = displayDefaultValue;
-    display.setAttribute("disable", true);
-    display.setAttribute("class", classes.taskInput);
 
     container.appendChild(display);
 
