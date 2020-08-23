@@ -52,9 +52,19 @@ input {
     font-weight: 500;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $secondary-color:hover;
       border: 2px solid $main-color;
       color: $main-color;
+    }
+
+    &-pause {
+      width: 45px;
+      background-image: $pause-icon;
+    }
+
+    &-pause {
+      width: 45px;
+      background-image: $start-icon;
     }
   }
 }

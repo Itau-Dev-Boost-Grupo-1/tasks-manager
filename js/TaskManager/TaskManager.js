@@ -8,10 +8,14 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     taskInput: "add-task__form-input",
     addTaskContainer: "add-task",
     addTaskButton: "add-task__form-button",
-    taskListContainer: "task__list"
+    taskListContainer: "tasks__list"
   };
 
-  var inputTaskPlaceHolder =  taskPlaceholder || "Create task manager app"
+  var inputTaskPlaceHolder =  taskPlaceholder || "Create task manager app";
+  var taskListUI = null;
+  var tasks = [];
+
+  var _self = this;
 
   function create() {
 
@@ -21,7 +25,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
 
       appContainer.appendChild(app);
 
-      console.info("created");
+      console.info("Task Manager created!");
     } catch (error) {
 
       console.error(error);
@@ -31,8 +35,21 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
 
   function destroy() {}
 
-  this.addTask = function() {}
-  this.removeTask = function() {}
+  function createTask(name) {
+    var task = new Task(taskListUI, name);
+
+    return task;
+  }
+
+  this.addTask = function(taskName) {
+    console.log("[addTask] taskName: ", taskName);
+
+    var task = createTask(taskName);
+
+    tasks.push(task);
+  }
+
+  // this.removeTask = function() {}
 
   function errorMessageHTML(message) {
     var p = document.createElement("p");
@@ -58,12 +75,15 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
 
   function createMainContainerUI() {
     var mainContainer = createContainer(classes.taskManager);
-    var title = createTitle(name);
 
+    var title = createTitle(name);
     mainContainer.appendChild(title);
 
     var taskUI = createTaskUI();
     mainContainer.appendChild(taskUI);
+
+    taskListUI =  createTaskListContainer();
+    mainContainer.appendChild(taskListUI);
 
     return mainContainer;
   }
@@ -94,14 +114,14 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   function createTaskUI() {
     var container = createContainer(classes.addTaskContainer);
 
-    var form = document.createElement("form");
+    var form = document.createElement("div");
     form.setAttribute("class", classes.form);
 
     var taskInput = createTextInput(classes.taskInput, inputTaskPlaceHolder, true);
 
     form.appendChild(taskInput);
 
-    var addTaskButton = createButton("Add Task", classes.addTaskButton, this.addTask);
+    var addTaskButton = createButton("Add Task", classes.addTaskButton, _self.addTask);
 
     form.appendChild(addTaskButton);
 
