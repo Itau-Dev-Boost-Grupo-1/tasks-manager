@@ -1,0 +1,8 @@
+@mixin button-icon($icon-name) {
+
+  background-image: $icon-name;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+
+}

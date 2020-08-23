@@ -16,6 +16,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   var tasks = [];
 
   var _self = this;
+  var taskInput = null;
 
   function create() {
 
@@ -47,6 +48,8 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     var task = createTask(taskName);
 
     tasks.push(task);
+
+    taskInput.value = "";
   }
 
   // this.removeTask = function() {}
@@ -117,11 +120,13 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     var form = document.createElement("div");
     form.setAttribute("class", classes.form);
 
-    var taskInput = createTextInput(classes.taskInput, inputTaskPlaceHolder, true);
+    taskInput = createTextInput(classes.taskInput, inputTaskPlaceHolder, true);
 
     form.appendChild(taskInput);
 
-    var addTaskButton = createButton("Add Task", classes.addTaskButton, _self.addTask);
+    var addTaskButton = createButton("Add Task", classes.addTaskButton, function () {
+      _self.addTask(taskInput.value);
+    });
 
     form.appendChild(addTaskButton);
 
@@ -131,7 +136,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   }
 
   function createTaskListContainer() {
-    var listContainer = document.createElement("li");
+    var listContainer = document.createElement("ul");
     listContainer.setAttribute("class", classes.taskListContainer);
 
     return listContainer;

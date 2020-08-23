@@ -1,5 +1,6 @@
 @import "config";
 @import "reset";
+@import "mixins";
 
 body {
   font-family: $main-font;
@@ -52,19 +53,17 @@ input {
     font-weight: 500;
 
     &:hover {
-      background-color: $secondary-color:hover;
+      background-color: $secondary-color;
       border: 2px solid $main-color;
       color: $main-color;
     }
 
     &-pause {
-      width: 45px;
-      background-image: $pause-icon;
+      @include button-icon($pause-icon);
     }
 
-    &-pause {
-      width: 45px;
-      background-image: $start-icon;
+    &-start {
+      @include button-icon($start-icon);
     }
   }
 }
