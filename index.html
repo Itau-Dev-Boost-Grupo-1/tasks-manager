@@ -13,7 +13,7 @@
   </head>
   <body>
     <main class="app">
-      <h1 class="app__title">Tasks Manager</h1>
+      <h1 class="app__title main-title">Tasks Manager</h1>
 
       <div class="add-task">
         <form class="add-task__form">
@@ -25,11 +25,29 @@
             required
           />
 
-          <input class="add-task__form-button" type="submit" value="Add" />
+          <input
+            class="add-task__form-button button"
+            type="submit"
+            value="Add"
+          />
         </form>
       </div>
 
       <ul class="tasks__list"></ul>
+
+      <div class="tasks__total">
+        <h2 class="main-title">Total hours</h2>
+
+        <ul class="tasks__total-timer timer">
+          <li><span class="timer__hours">00</span>:</li>
+          <li><span class="timer__minutes">00</span>:</li>
+          <li><span class="timer__seconds">00</span></li>
+        </ul>
+
+        <button class="tasks__total-button button" onclick="totalCounter()">
+          Calculate
+        </button>
+      </div>
     </main>
 
     <script src="./js/app.js"></script>

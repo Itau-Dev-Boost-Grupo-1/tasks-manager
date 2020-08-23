@@ -13,14 +13,32 @@ body {
 input {
   font-family: "Inter", sans-serif; }
 
+.main-title {
+  text-align: center;
+  font-size: 30px;
+  color: #3a86ff; }
+
+.button {
+  width: 200px;
+  height: 45px;
+  background-color: #3a86ff;
+  box-shadow: 0px 0px 10px rgba(58, 134, 255, 0.32);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 300ms ease all;
+  font-weight: 500; }
+  .button:hover {
+    background-color: #ebf2ff;
+    border: 2px solid #3a86ff;
+    color: #3a86ff; }
+
 .app {
   max-width: 500px;
   margin: 0 auto;
   padding: 60px 30px; }
   .app__title {
-    text-align: center;
-    font-size: 30px;
-    color: #3a86ff;
     margin: 0 auto 42px; }
 
 .add-task__form {
@@ -35,21 +53,7 @@ input {
     font-size: 16px;
     color: #3a86ff; }
   .add-task__form-button {
-    width: 200px;
-    height: 45px;
-    background-color: #3a86ff;
-    box-shadow: 0px 0px 10px rgba(58, 134, 255, 0.32);
-    border-radius: 30px;
-    color: #ffffff;
-    font-size: 20px;
-    margin: 28px auto 0;
-    cursor: pointer;
-    transition: 300ms ease all;
-    font-weight: 500; }
-    .add-task__form-button:hover {
-      background-color: #ebf2ff;
-      border: 2px solid #3a86ff;
-      color: #3a86ff; }
+    margin: 28px auto 0; }
 
 .tasks__list {
   margin: 56px auto 0;
@@ -70,18 +74,6 @@ input {
     font-size: 20px;
     width: 100%;
     margin: 0 auto 20px; }
-  .tasks__list-item-timer {
-    padding: 13px 16px;
-    border: 2px solid #3a86ff;
-    list-style: none;
-    background: #ebf2ff;
-    color: #3a86ff;
-    border-radius: 10px;
-    font-weight: 500;
-    display: flex;
-    flex-shrink: 0;
-    min-width: 110px;
-    justify-content: center; }
   .tasks__list-item-button {
     background: #3a86ff;
     width: 45px;
@@ -94,3 +86,28 @@ input {
       margin: 0 15px 0 0; }
     .tasks__list-item-button:hover {
       transform: scale(1.1); }
+    .tasks__list-item-button:disabled {
+      opacity: 0.5;
+      pointer-events: none; }
+
+.timer {
+  padding: 13px 16px;
+  border: 2px solid #3a86ff;
+  list-style: none;
+  background: #ebf2ff;
+  color: #3a86ff;
+  border-radius: 10px;
+  font-weight: 500;
+  display: flex;
+  flex-shrink: 0;
+  min-width: 110px;
+  justify-content: center; }
+
+.tasks__total {
+  text-align: center;
+  margin: 58px auto 0; }
+  .tasks__total-timer {
+    margin: 28px auto 0;
+    max-width: 110px; }
+  .tasks__total-button {
+    margin: 28px auto 0; }
