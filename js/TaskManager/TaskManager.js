@@ -3,11 +3,12 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
 
   var classes = {
     taskManager: "task-manager",
-    form: "add-task__form",
+    form: "task__form",
     title: "app__title",
-    taskInput: "add-task__form-input",
-    addTaskContainer: "add-task",
-    addTaskButton: "add-task__form-button",
+    taskInput: "task__form-input",
+    displayTotal: "task__form-input--small",
+    addTaskContainer: "task",
+    addTaskButton: "task__form-button",
     taskListContainer: "tasks__list"
   };
 
@@ -45,8 +46,6 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   }
 
   this.addTask = function(taskName) {
-    console.log("[addTask] taskName: ", taskName);
-
     var task = createTask(taskName);
 
     tasks.push(task);
@@ -105,7 +104,6 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   }
 
   function createContainer(className, id) {
-    console.log("[createContainer] classsName: ", className + ", id: ", id);
     var container = document.createElement("div");
 
     if (className) {
@@ -141,7 +139,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   }
 
   function createCalcTotalUI() {
-    var container = createContainer(classes.addTaskContainer);
+    var container = createContainer(classes.form);
 
     var title = createTitle("Total hours");
     container.appendChild(title);
@@ -149,7 +147,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
     var form = document.createElement("div");
     form.setAttribute("class", classes.form);
 
-    display = createTextInput(classes.taskInput, inputTaskPlaceHolder, true);
+    display = createTextInput(classes.displayTotal, inputTaskPlaceHolder, true);
     display.value = displayDefaultValue;
 
     container.appendChild(display);
@@ -182,7 +180,7 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
       totalTime += task.getTime();
     }
 
-    display.value = new Task().calculateTime(totalTime);
+    display.value = new Task(document.createElement("div"), "time").calculateTime(totalTime);
   }
 
   function createTaskListContainer() {
@@ -193,8 +191,6 @@ var TaskManager = function(title, containerId, taskPlaceholder) {
   }
 
   function createButton(text, classes, onClick) {
-    console.log("[createButton] text: ", text, ", classes: ", classes, ", onClick: ", typeof(onClick));
-
     var button = document.createElement("button");
     button.innerText = text || "Click";
 

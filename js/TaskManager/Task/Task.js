@@ -2,17 +2,18 @@ var Task = function (container, taskName) {
   var name = taskName || "Task";
 
   var display = null;
-  var time = 15000;
+  //   var time = 15000;
+  var time = 0;
   var timerId = null;
   var mainContainer = null;
   var displayDefaultValue = "00:00:00";
 
   var classes = {
     taskContainer: "tasks__list-item",
-    taskInput: "add-task__form-input",
+    taskInput: "task__form-input--small",
     taskTitle: "tasks__list-item-title",
-    pauseButton: "add-task__form-button-pause",
-    startButton: "add-task__form-button-start"
+    pauseButton: "task__form-button-pause",
+    startButton: "task__form-button-start"
   }
 
   var _self = this;
@@ -92,14 +93,11 @@ var Task = function (container, taskName) {
       } 
     }
 
-    console.log("Minutos: ", minutes, "tt: ", timeSeconds);
-
     return { time: minutes, timeLeft: hourMinutes - minutes };
   }
 
   function getHours(timeSeconds) {
     var hours = 0;
-    console.log("Hours: ", hours, "tt: ", timeSeconds);
     if (timeSeconds >= 60) {
       hours = timeSeconds % 60;
 
@@ -161,7 +159,6 @@ var Task = function (container, taskName) {
     mainContainer = getMainContainer(container);
     mainContainer.appendChild(createTaskUI());
 
-    console.log("Task created!");
   }
 
   function getMainContainer(container) {

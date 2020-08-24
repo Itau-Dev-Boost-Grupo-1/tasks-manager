@@ -5,4 +5,20 @@
   height: 24px;
   width: 24px;
 
+	background-color: #3a86ff;
+	border-radius: 30px;
+	margin: 6px;
+	cursor: pointer;
+
+}
+
+@mixin inputDefault() {
+    border: 2px solid $main-color;
+    background-color: $secondary-color;
+    width: 100%;
+    height: 50px;
+    border-radius: $border-radius-small;
+    padding: 0 25px;
+    font-size: $font-small;
+    color: $main-color;
 }
