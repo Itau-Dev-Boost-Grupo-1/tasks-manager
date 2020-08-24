@@ -11,18 +11,39 @@ input {
   font-family: $main-font;
 }
 
+.header{
+   text-align: center;
+    font-size: $font-large;
+    color: $light-color;
+    margin: 20px auto 42px;
+}
+
+.task__input{
+  border: 2px solid $main-color;
+  background-color: $secondary-color;
+  width: 30%;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 25px;
+  font-size: $font-small;
+  color: $light-color;
+  margin: 30px 15px;
+}
+.task__input-button:hover{
+  cursor: pointer;
+}
+
 .app {
   max-width: 500px;
   margin: 0 auto;
   padding: 60px 30px;
-
-  &__title {
-    text-align: center;
-    font-size: $font-large;
-    color: $main-color;
-    margin: 0 auto 42px;
-  }
+  text-align: center;
+  font-size: $font-large;
+  color: $main-color;
+  margin: 0 auto 42px;
+  
 }
+
 
 .add-task__form {
   text-align: center;
@@ -76,4 +97,10 @@ input {
     color: $main-color;
     font-size: $font-medium;
   }
+}
+
+#total-counter{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }

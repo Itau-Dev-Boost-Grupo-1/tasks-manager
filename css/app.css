@@ -6,28 +6,47 @@
   border: 0; }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Lucida Console", sans-serif;
   font-size: 16px;
-  background: #ebf2ff; }
+  background: #02112c; }
 
 input {
-  font-family: "Inter", sans-serif; }
+  font-family: "Lucida Console", sans-serif; }
+
+.header {
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 20px auto 42px; }
+
+.task__input {
+  border: 2px solid #3a86ff;
+  background-color: #02112c;
+  width: 30%;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 25px;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 30px 15px; }
+
+.task__input-button:hover {
+  cursor: pointer; }
 
 .app {
   max-width: 500px;
   margin: 0 auto;
-  padding: 60px 30px; }
-  .app__title {
-    text-align: center;
-    font-size: 30px;
-    color: #3a86ff;
-    margin: 0 auto 42px; }
+  padding: 60px 30px;
+  text-align: center;
+  font-size: 30px;
+  color: #3a86ff;
+  margin: 0 auto 42px; }
 
 .add-task__form {
   text-align: center; }
   .add-task__form-input {
     border: 2px solid #3a86ff;
-    background-color: #ebf2ff;
+    background-color: #02112c;
     width: 100%;
     height: 50px;
     border-radius: 10px;
@@ -47,7 +66,7 @@ input {
     transition: 300ms ease all;
     font-weight: 500; }
     .add-task__form-button:hover {
-      background-color: #ebf2ff;
+      background-color: #02112c;
       border: 2px solid #3a86ff;
       color: #3a86ff; }
 
@@ -64,3 +83,8 @@ input {
     font-weight: 500;
     color: #3a86ff;
     font-size: 20px; }
+
+#total-counter {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px; }

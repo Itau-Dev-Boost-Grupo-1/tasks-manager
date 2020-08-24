@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronometer</title>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+  <header id="myDIV" class="header">
+    <h2>Chronometer</h2>
+    <input type="text" id="task__input" class="task__input" placeholder="Adicione uma tarefa...">
+    <span onclick="newElement()" id="btn-add" class="task__input-button">Adicionar</span>
+  </header>
     <main class="app">
-        <div>
-            <h1 class="title">Chronometer</h1>
-        </div>
-        <div>
-            <input type="text" id="task-name" placeholder="Adicione uma tarefa">
-            <button id="btn-add">Adicionar</button>
-        </div>
         <div id="list-layout">
-            <ul id="list-main">
-                <li>
-                    <p class="time">Tarefa 1</p> <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-                    <button id="btn-start">Start</button>
-                    <button id="stop">Stop</button>
-                    <button id="clear">Clear</button>
+            <ul id="list-main" class="tasks__list">
+                <li class="tasks__list-item">
+                    <p class="task__name">Tarefa 1</p> 
+                    <span id="clock">00:00:00</span>
+                    <button id="btn-start" class="start">Start</button>
+                    <button id="btn-stop">Stop</button>
+                    <button id="btn-clear">Clear</button>
                 </li>
             </ul>
         </div>
+        <section id="total-counter">
+            <div class="tasks__total">
+                <h2 class="main-title">Tempo total</h2>
+                <span>00:00:00</span>
+                <button class="tasks__total-button button" onclick="totalCounter()">
+                Calculate
+                </button>
+            </div>
+        </section>
     </main>
     <script src="./js/app.js"></script>
+    <script src="./js/tasks.js"></script>
 </body>
 </html>
